@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1= title
+	for article in blogs
+		div
+			div(style='float:left;margin-top:10px')= article.Username
+			div(style='float:right;margin-top:10px')= article.CreateDate
+			br
+			div(style='clear:both')= article.Article
+				a(href='/remove/#{article.id}', style='float:right;margin-top:105px;margin-right:20px;') remove
+			hr(style='margin-top:110px;')

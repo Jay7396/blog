@@ -1,0 +1,50 @@
+doctype html
+html(ng-app="userListApp")
+	head
+		title= title
+		link(rel="stylesheet", href="/stylesheets/bootstrap.css")
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		body
+	if (username && authenticated)
+		nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+				.container-fluid
+					.navbar-header
+						button.navbar-toggle(data-toggle="collapes" data-target="#bs-example-navbar=collapse-1")
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href="#") #{username} Test Blog
+						ul.nav.navbar-nav.navbar
+							li
+								a(href="/") Home
+					ul.nav.navbar-nav.navbar-right
+						li
+							a(href="/logout") Sign Out
+						li
+							a(href="/add_article") Add Article
+						li
+							a(href="/profile") Profile
+	else
+		nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
+				.container-fluid
+					.navbar-header.navbar-top
+						button.navbar-toggle(data-toggle="collapes" data-target="#bs-example-navbar=collapse-1")
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href="#") Test Blog
+						ul.nav.navbar-nav
+							li
+								a(href="/") Home
+					ul.nav.navbar-nav.navbar-right
+						li
+							a(href="/login") Login
+						li
+							a(href="/reg") Register
+						li
+							a(href="/fotget") Forgot password
+		block content
+		script(src="/javascripts/angular.min.js")
+		script(src="/components/angular-bootstrap/ui-bootstrap.js")
+		script(src="/components/angular-bootstrap/ui-bootstrap-tpls.js")
+		script(src="/controller.js")

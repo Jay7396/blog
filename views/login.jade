@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	h1= title
+	if (success)
+		div=success
+	if (error)
+		div= error
+	form.form-horizontal(action="/login", role="form", method="post", name="login")
+		.form-group
+			label.col-sm-2.control-label(for="inputName") Username or e-mail
+			.col-sm-3
+				input.form-control(type="text", name="name", placeholder="Username or e-mail")
+		.form-group
+			label.col-sm-2.control-label(for="inputName") password
+			.col-sm-3
+				input.form-control(type="password", name="password")
+		.form-group
+			.col-sm-offset-2.col-sm-10
+				button.btn.btn-default(type="submit") Login
